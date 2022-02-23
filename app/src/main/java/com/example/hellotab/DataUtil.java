@@ -5,7 +5,14 @@ import java.util.List;
 
 public class DataUtil {
 
-  static List<StudentEntity> dataList() {
-    return Arrays.asList(new StudentEntity("0", "Tony"), new StudentEntity("1", "Jun"));
+  static List<CategoryEntity> categoryList() {
+    return Arrays.asList(new CategoryEntity("Category 1", student1List()), new CategoryEntity("Category 2",
+        student2List()));
+  }
+  static List<StudentEntity> student1List() {
+    return Arrays.asList(new StudentEntity("11", "Tony11"), new StudentEntity("12", "Jun11"));
+  }
+  static List<StudentEntity> student2List() {
+    return Arrays.asList(new StudentEntity("22", "Tony22"), new StudentEntity("23", "Jun22"));
   }
 }

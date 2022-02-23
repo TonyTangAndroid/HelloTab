@@ -1,20 +1,26 @@
 package com.example.hellotab;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 class NameViewHolder extends ViewHolder {
 
-  private final TextView tv_name;
+  private final Context context;
+  private final RecyclerView category_recycler_view;
 
-  public NameViewHolder(@NonNull View itemView) {
+  public NameViewHolder(Context context, @NonNull View itemView) {
     super(itemView);
-    tv_name = itemView.findViewById(R.id.tv_name);
+    this.context = context;
+    category_recycler_view = itemView.findViewById(R.id.category_recycler_view);
   }
 
-  public void bind(StudentEntity studentEntity) {
-    tv_name.setText(studentEntity.name);
+  public void bind(CategoryEntity studentEntity) {
+    category_recycler_view.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));
+    category_recycler_view.setAdapter(new NestedAdapter(context, studentEntity.list));
   }
 }
