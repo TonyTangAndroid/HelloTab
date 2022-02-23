@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView = findViewById(R.id.list);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    recyclerView.setAdapter(new MyAdapter(this,Arrays.asList(new StudentEntity("0","Tony"),new StudentEntity("1","Jun"))));
+    recyclerView.setAdapter(new MyAdapter(this, DataUtil.dataList()));
   }
 
 }
